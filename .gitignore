@@ -1,0 +1,9 @@
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.backup
+
+
+# Ansible
+hosts
+roles.galaxy/

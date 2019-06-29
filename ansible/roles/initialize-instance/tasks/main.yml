@@ -1,0 +1,6 @@
+---
+- name: upgrade OS
+  become: yes
+  apt:
+    upgrade: dist
+    update_cache: yes

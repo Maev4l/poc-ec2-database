@@ -1,0 +1,7 @@
+---
+- hosts: database
+  remote_user: ubuntu
+  become: yes
+  roles:
+    - initialize-instance
+    - galaxyproject.postgresql
