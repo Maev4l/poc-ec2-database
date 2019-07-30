@@ -90,10 +90,20 @@ resource "aws_security_group_rule" "ssh_sg_rule" {
   type              = "ingress"
   from_port         = "22"
   to_port           = "22"
-  cidr_blocks       = ["78.193.217.31/32", "92.154.181.233/32"]
+  cidr_blocks       = ["78.193.217.31/32", "81.48.73.158/32"]
   protocol          = "tcp"
   security_group_id = "${aws_security_group.main_security_group.id}"
-  description       = "Connection from local machine"
+  description       = "SSH connection from local machine"
+}
+
+resource "aws_security_group_rule" "docker_sg_rule" {
+  type              = "ingress"
+  from_port         = "2375"
+  to_port           = "2375"
+  cidr_blocks       = ["78.193.217.31/32", "81.48.73.158/32"]
+  protocol          = "tcp"
+  security_group_id = "${aws_security_group.main_security_group.id}"
+  description       = "Docker connection from local machine"
 }
 
 data "aws_ami" "ubuntu" {
